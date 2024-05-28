@@ -1,0 +1,1 @@
+export const useTokenStorage = () => useCookie('vv_a')

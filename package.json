@@ -13,7 +13,11 @@
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
+    "google-auth-library": "^9.10.0",
+    "jose": "^5.3.0",
+    "mongodb": "^6.6.2",
     "nuxt": "^3.11.2",
+    "openid-client": "^5.6.5",
     "radix-vue": "^1.8.2",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
@@ -21,6 +25,7 @@
   "devDependencies": {
     "@iconify/vue": "^4.1.2",
     "@nuxt/eslint": "^0.3.13",
+    "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "eslint": "^9.3.0",
     "husky": "^9.0.11",

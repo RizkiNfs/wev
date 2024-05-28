@@ -8,5 +8,7 @@ export default withNuxt({
     'no-unneeded-ternary': 'error',
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
+    '@typescript-eslint/no-explicit-any': 'off',
+    'indent': ['error', 2],
   }
 })
