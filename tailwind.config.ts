@@ -35,6 +35,7 @@ export default <Partial<Config>>{
           DEFAULT: '#3b3b40'
         },
         primary: {
+          25: '#f5f2f9',
           50: '#efe9f5',
           100: '#ded2eb',
           200: '#bda5d7',

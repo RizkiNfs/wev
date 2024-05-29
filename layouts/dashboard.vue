@@ -7,7 +7,13 @@ const sidebarLinks = [
     name: 'Dashboard',
     path: '/dashboard',
     icon: 'iconamoon:home-bold'
-  }
+  },
+  {
+    name: 'Sites',
+    path: '/dashboard/sites',
+    icon: 'iconamoon:file-document-bold'
+  },
+  
 ]
 
 const showSidebar = ref(false)
@@ -31,7 +37,7 @@ const showSidebar = ref(false)
           <li v-for="link in sidebarLinks" :key="link.path">
             <nuxt-link 
               :to="link.path" 
-              active-class="bg-primary-50 text-primary"
+              exact-active-class="bg-primary-50 text-primary"
               class="flex px-2 py-3 items-center rounded-md hover:bg-primary-50 hover:text-primary"
             >
               <ui-icon :icon="link.icon" class="mr-3 text-xl"/>
@@ -42,15 +48,15 @@ const showSidebar = ref(false)
       </aside>
       <div 
         v-if="showSidebar" 
-        @click="showSidebar = false" 
-        :style="{opacity: showSidebar ? 0.5 : 0}"
+        :style="{opacity: showSidebar ? 0.5 : 0}" 
         role="button"
         class="fixed inset-0 bg-black transition-opacity z-20 md:hidden"
+        @click="showSidebar = false"
       />
     </Teleport>
     <header class="md:ml-64 py-2 sticky top-0 z-10 bg-neutral-100 flex justify-between px-2">
       <div class="flex items-center">
-        <button @click="showSidebar = !showSidebar" class="md:hidden">
+        <button class="md:hidden" @click="showSidebar = !showSidebar">
           <ui-icon icon="iconamoon:menu-burger-horizontal-bold" class="text-xl"/>
         </button>
       </div>

@@ -20,4 +20,9 @@ html, body, #__nuxt {
 h1, h2, h3, h4 {
   @apply font-serif;
 }
+
+:focus{
+  outline: none;
+  @apply ring-2 ring-primary-300 ring-offset-2 ring-offset-white;
+}
 </style>
