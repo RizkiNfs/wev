@@ -50,7 +50,7 @@ const sites = [
     >
     <template #header>
       <div class="flex flex-col md:flex-row gap-4 justify-between">
-        <ui-button>
+        <ui-button to="/dashboard/sites/new">
           Create Site
         </ui-button>
         <input class="p-2 border rounded-lg focus:ring-2 ring-primary-300 ring-offset-2 ring-offset-white bg-neutral-50 focus:bg-white" placeholder="search" >

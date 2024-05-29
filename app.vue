@@ -23,6 +23,9 @@ h1, h2, h3, h4 {
 
 :focus{
   outline: none;
+}
+:focus-visible{
+  outline: none;
   @apply ring-2 ring-primary-300 ring-offset-2 ring-offset-white;
 }
 </style>
