@@ -28,6 +28,12 @@ export default defineNuxtConfig({
       'composables/**',
     ]
   },
+  components: {
+    dirs: [
+      { path: '~/components/el', extensions: ['tsx', 'ts'], prefix: 'el', global: true, isAsync: true },
+      { path: '~/components', extensions: ['vue','ts','tsx'] },
+    ]
+  },
   googleFonts: {
     families: {
       'Inter': [400,700],
