@@ -31,6 +31,7 @@ export default defineNuxtConfig({
   components: {
     dirs: [
       { path: '~/components/el', extensions: ['tsx', 'ts'], prefix: 'el', global: true, isAsync: true },
+      { path: '~/components/editor', extensions: ['vue','ts','tsx'], prefix: 'editor', global: true, isAsync: true },
       { path: '~/components', extensions: ['vue','ts','tsx'] },
     ]
   },

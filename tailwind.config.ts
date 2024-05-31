@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 export default <Partial<Config>>{
   content: [
@@ -10,7 +11,7 @@ export default <Partial<Config>>{
     './utils/**/*.tsx',
     './app.vue',
   ],
-  plugins: [],
+  plugins: [tailwindcssAnimate],
   theme: {
     fontFamily: {
       'sans': ['"Inter"', '-apple-system', 'BlinkMacSystemFont'],

@@ -18,14 +18,16 @@ useHead({
   ],
 })
 
-const elements = ref<RendererProps['elements']>([
+const elements: RendererProps['elements'] = [
   { 
+    id: 'id-1',
     el: 'el-avatar', 
     props: {
       src: 'https://fastly.picsum.photos/id/660/300/300.jpg?hmac=UOozGJ9VjkIk9o_6J2qxfFNaj26dCQqgH0470waEKZg'
     }
   },
   { 
+    id: 'id-2',
     el: 'el-text',
     props: {
       class: 'text-center text-xl font-bold text-[#fafafa]', 
@@ -33,6 +35,7 @@ const elements = ref<RendererProps['elements']>([
     } 
   },
   { 
+    id: 'id-3',
     el: 'el-text', 
     props: {
       class: 'text-center text-lg text-[#fafafa] mb-6', 
@@ -40,6 +43,7 @@ const elements = ref<RendererProps['elements']>([
     } 
   },
   { 
+    id: 'id-4',
     el: 'el-link-list', 
     props: {
       linkStyle: 'text-white text-lg bg-indigo-600 hover:opacity-90 rounded-full text-center block px-4 py-3 cursor-pointer border-4 border-white',
@@ -52,6 +56,7 @@ const elements = ref<RendererProps['elements']>([
     }
   },
   {
+    id: 'id-5',
     el: 'el-social-media-icons', 
     props: {
       class: 'mt-8',
@@ -68,7 +73,18 @@ const elements = ref<RendererProps['elements']>([
       ]
     }
   },
-])
+]
+
+const { state } = useSiteEditor()
+
+onMounted(() => {
+  state.value.pages = [
+    { elements: elements }
+  ]
+  state.value.id = 'site-id-1'
+})
+
+const open = ref(false)
 
 </script>
 
@@ -76,7 +92,7 @@ const elements = ref<RendererProps['elements']>([
   <client-only>
     <div class="w-full min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
       <div class="max-w-sm mx-auto pt-12">
-        <el-renderer :elements="elements" />
+        <el-renderer :elements="state.pages[0].elements" />
       </div>
     </div>
     <Teleport to="body">
@@ -84,9 +100,21 @@ const elements = ref<RendererProps['elements']>([
         class="fixed bottom-4 right-4 rounded-full shadow-2xl bg-white" 
         variant="outline" 
         :style="{borderRadius: '999px'}"
+        @click="open = true"
       >
         <ui-icon aria-label="edit" icon="iconoir:edit" class="text-3xl"/>
       </ui-button>
     </Teleport>
+    <ui-sheet 
+      v-model:open="open" 
+      class="w-[90%] md:w-[600px]"
+      side="right" 
+      title="Customize your site"
+      description="This is the editor panel"
+    >
+      <div class="">
+        <editor-page />
+      </div>
+    </ui-sheet>
   </client-only>
 </template>

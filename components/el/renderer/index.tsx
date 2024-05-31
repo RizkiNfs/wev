@@ -4,17 +4,17 @@ import type { AvatarEl } from '../avatar'
 import type { SocialMediaIconsEl } from '../social-media-icons'
 
 
-type Element = LinkListEl | TextEl | AvatarEl | SocialMediaIconsEl
+export type Element = LinkListEl | TextEl | AvatarEl | SocialMediaIconsEl
 
 export interface Props {
-  elements: Element[]
+  elements?: Element[]
 }
 
 export default (props: Props) => {
 
   const elements = props.elements
 
-  return elements.map((element) => {
+  return elements?.map((element) => {
     const { el, props } = element
     const El = resolveComponent(el)
     // @ts-expect-error - I'm not sure how to type this <= thank's copilot

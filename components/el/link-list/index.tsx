@@ -11,6 +11,7 @@ export interface Props {
 export interface LinkListEl {
   el: 'el-link-list'
   props: Props
+  id: string
 }
 
 export default (props: Props) => {

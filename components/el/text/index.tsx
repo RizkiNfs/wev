@@ -10,6 +10,7 @@ export interface Props {
 export interface TextEl {
   el: 'el-text'
   props: Props
+  id: string
 }
 
 export default (props: Props) => {

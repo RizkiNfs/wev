@@ -13,6 +13,7 @@ export interface Props {
 export interface SocialMediaIconsEl {
   el: 'el-social-media-icons'
   props: Props
+  id: string
 }
 
 export default (props: Props) => {

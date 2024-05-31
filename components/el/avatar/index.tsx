@@ -6,6 +6,7 @@ export interface Props {
 export interface AvatarEl {
   el: 'el-avatar'
   props: Props
+  id: string
 }
 
 export default (props: Props) => {
