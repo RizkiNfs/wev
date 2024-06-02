@@ -1,17 +1,8 @@
-import type { Element } from '~/components/el/renderer'
+import type { Element, Site } from '~/types/site'
 
-interface Site {
-  id: string
-  name?: string
-  path?: string
-  pages: {
-    elements?: Element[]
-  }[]
-}
-
-export const useSiteState = () => useState<Site>('current-file', () => ({
+export const useSiteState = () => useState<Partial<Site>>('current-file', () => ({
   id: '',
-  pages: [{ elements: [] }]
+  pages: [{ elements: [], path: '/' }]
 }))
 
 

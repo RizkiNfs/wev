@@ -26,7 +26,7 @@ export const sign = async (payload: Payload) => {
     .setIssuedAt()
     .setIssuer(issuer)
     .setAudience(audience)
-    .setExpirationTime('24h')
+    .setExpirationTime('24d')
     .sign(privateKey)
 }
 

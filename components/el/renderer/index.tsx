@@ -1,10 +1,4 @@
-import type { LinkListEl } from '../link-list'
-import type { TextEl } from '../text'
-import type { AvatarEl } from '../avatar'
-import type { SocialMediaIconsEl } from '../social-media-icons'
-
-
-export type Element = LinkListEl | TextEl | AvatarEl | SocialMediaIconsEl
+import type { Element } from '~/types/site'
 
 export interface Props {
   elements?: Element[]

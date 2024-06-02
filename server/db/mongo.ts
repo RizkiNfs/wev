@@ -22,6 +22,7 @@ class Mongo {
 
     this.db = this.client.db()
     this.User = this.db.collection('users')
+    this.Site = this.db.collection('sites')
 
     await this.createIndex()
   }
@@ -32,6 +33,8 @@ class Mongo {
 
   // @ts-expect-error strictPropertyInitialization
   public User: Collection
+  // @ts-expect-error strictPropertyInitialization
+  public Site: Collection
 
 }
 

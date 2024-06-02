@@ -2,7 +2,7 @@
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 
-const button = cva('cursor-pointer disabled:cursor-not-allowed py-2 px-4 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white', {
+const button = cva('text-center cursor-pointer disabled:cursor-not-allowed py-2 px-4 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white', {
   variants: {
     variant: {
       filled: 'text-white',
@@ -79,7 +79,9 @@ const {
     :class="button({ color, variant })"
     :disabled="disabled || loading"
   >
-    <ui-spinner v-if="loading" class="text-center text-lg text-current" />
+    <div v-if="loading" class="flex items-center justify-center">
+      <ui-spinner class="text-lg text-current" />
+    </div>
     <slot v-else />
   </component>
 </template>

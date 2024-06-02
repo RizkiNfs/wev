@@ -25,7 +25,7 @@ const forwarded = useForwardPropsEmits(props, emits)
 
 <template>
   <dialog-root v-bind="forwarded">
-    <dialog-portal>
+    <dialog-portal to="body">
       <ui-sheet-content v-bind="$attrs" :side="side">
         <slot />
       </ui-sheet-content>
