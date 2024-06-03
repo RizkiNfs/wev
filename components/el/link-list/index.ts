@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+ 
 import { h } from 'vue'
 
 interface LinkItem {
@@ -19,17 +19,13 @@ export interface LinkListEl {
 
 export default (props: Props) => {
   return (
-    <ul>
-      {props.items?.map((link) => (
-        <li class="mb-4">
-          <a 
-            class={props.linkStyle} 
-            href={link.href}
-          >
-            {link.title}
-          </a>
-        </li>
-      ))}
-    </ul>
+    h('ul', props.items?.map((link) => (
+      h('li', { class: 'mb-4' }, [
+        h('a', { 
+          class: [props.linkStyle],
+          href: link.href
+        }, link.title)
+      ])
+    )))
   )
 }

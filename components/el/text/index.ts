@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+ 
 import { h } from 'vue'
 
 const as = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const
@@ -18,8 +18,6 @@ export interface TextEl {
 export default (props: Props) => {
   const Tag = props.as || 'p'
   return (
-    <Tag class={props.class}>
-      {props.content}
-    </Tag>
+    h(Tag, { class: props.class }, props.content)
   )
 }
