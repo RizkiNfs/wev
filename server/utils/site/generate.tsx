@@ -5,7 +5,7 @@ import tailwindcss from 'tailwindcss'
 import { transform } from 'lightningcss'
 
 import components from './components'
-import renderer from '~/components/el/renderer/index.tsx'
+import renderer from '~/components/el/renderer'
 import type { Element } from '~/types/site'
 
 

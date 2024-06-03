@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.588.0",
@@ -35,6 +36,7 @@
     "lightningcss": "^1.25.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vue-tsc": "^2.0.19"
   }
 }

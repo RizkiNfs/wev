@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import type { Element } from '~/components/el/renderer' 
+import type { Element } from '~/types/site' 
 const selectedElement = useSelectedElement<Element>()
 const { state } = useSiteEditor()
 
