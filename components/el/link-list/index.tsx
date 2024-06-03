@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+import { h } from 'vue'
+
 interface LinkItem {
   title: string;
   href: string;

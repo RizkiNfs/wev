@@ -60,3 +60,19 @@ export const createSite = async (site: Partial<Omit<Site, '_id' >>): Promise<Sit
 
 
 }
+
+
+export const updateSite = async (site: Partial<Site>) => {
+
+  const { path, owner, _id:_, ...value } = site
+
+  const res = await mongo.Site?.updateOne({ path: path, owner }, {
+    $set: {
+      ...value
+    }
+  })
+
+  return res
+
+
+}

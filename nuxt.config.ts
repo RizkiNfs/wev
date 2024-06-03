@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI,
     JWT_PRIVATE_KEY: process.env.JWT_PRIVATE_KEY,
     JWT_PUBLIC_KEY: process.env.JWT_PUBLIC_KEY,
+    S3_ENDPOINT: process.env.S3_ENDPOINT,
+    S3_ACCESS_KEY_ID: process.env.S3_ACCESS_KEY_ID,
+    S3_SECRET_ACCESS_KEY: process.env.S3_SECRET_ACCESS_KEY,
   },
   vue: {
     propsDestructure: true,

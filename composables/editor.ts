@@ -1,8 +1,13 @@
 import type { Element, Site } from '~/types/site'
 
-export const useSiteState = () => useState<Partial<Site>>('current-file', () => ({
-  id: '',
-  pages: [{ elements: [], path: '/' }]
+export const useSiteState = () => useState<Site>('current-file', () => ({
+  _id: '',
+  pages: [{ elements: [], path: '/' }],
+  owner: { _id: '' },
+  path: '',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  isPublicTemplate: false
 }))
 
 

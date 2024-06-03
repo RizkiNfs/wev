@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Page } from '~/types/site'
+import type { Page, Site } from '~/types/site'
 
 interface Props {
   page: Page
@@ -8,6 +8,19 @@ interface Props {
 defineProps<Props>()
 
 const open = ref(false)
+
+const { state } = useSiteEditor()
+
+const {request: updateSite, isLoading} = useRequest((body: Site) => $fetch(`/api/my/site/${body.path}`, {
+  method: 'PATCH',
+  body
+}))
+
+
+const handleSave = async () => {
+  await updateSite(state.value)
+  open.value = false
+}
 
 
 </script>
@@ -35,8 +48,15 @@ const open = ref(false)
       title="Customize your site"
       description="This is the editor panel"
     >
-      <div class="">
+      <div class="relative h-full">
         <editor-page />
+        <ui-button 
+          :loading="isLoading"
+          class="w-full absolute bottom-12"
+          @click="handleSave" 
+        >
+          Finish
+        </ui-button>
       </div>
     </ui-sheet>
   </nuxt-layout>

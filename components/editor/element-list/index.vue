@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Element } from '~/components/el/renderer' 
+import type { Element } from '~/types/site' 
 import { dragAndDrop } from '@formkit/drag-and-drop/vue'
 
 const elements = defineModel<Element[]>({

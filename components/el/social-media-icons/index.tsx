@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+import { h } from 'vue'
 
 type Type = 'twitter' | 'linkedin';
 

@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+import { h } from 'vue'
 export interface Props {
   src: string
   alt?: string

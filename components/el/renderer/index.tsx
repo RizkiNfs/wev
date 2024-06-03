@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+import { resolveComponent, h } from 'vue'
 import type { Element } from '~/types/site'
 
 export interface Props {

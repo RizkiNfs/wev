@@ -10,10 +10,11 @@ onMounted(() => {
 
   $fetch(`/api/my/site/${sitePath}`)
     .then((res) => {
-      state.value.pages = (res.data?.pages || []) as unknown as Page[]
+      if(res.data){
+        state.value = res.data
+      }
     })
 
-  state.value._id = 'site-id-1'
 })
 
 </script>
