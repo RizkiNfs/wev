@@ -1,12 +1,10 @@
 <script setup lang="ts">
 
-import type { InputHTMLAttributes } from 'vue'
-
 defineOptions({
   inheritAttrs: false
 })
 
-const model = defineModel<InputHTMLAttributes['value']>()
+const model = defineModel<string|number>()
 
 defineProps<{label: string}>()
 

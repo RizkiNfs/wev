@@ -1,12 +1,10 @@
 <script setup lang="ts">
 
-import type { InputHTMLAttributes } from 'vue'
-
 defineOptions({
   inheritAttrs: false
 })
 
-const model = defineModel<InputHTMLAttributes['value']>()
+const model = defineModel<string>()
 
 const handleBlur = (event: Event) => {
   const target = event.target as HTMLInputElement

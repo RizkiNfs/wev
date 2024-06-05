@@ -5,7 +5,7 @@ interface Props {
   page: Page
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const open = ref(false)
 
@@ -15,6 +15,29 @@ const {request: updateSite, isLoading} = useRequest((body: Site) => $fetch(`/api
   method: 'PATCH',
   body
 }))
+
+
+const link = computed<any[]>(() => {
+  return [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+      crossorigin: ''
+    },
+    ...(props.page.fonts || []).map((font) => ({
+      rel: 'stylesheet',
+      href: `https://fonts.googleapis.com/css2?family=${font.family.replaceAll('_', '+').replaceAll('\'','')}:wght@${font.weight.join(';')}&display=swap`
+    })),
+  ]
+})
+
+useHead({
+  link: link,
+})
 
 
 const handleSave = async () => {

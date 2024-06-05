@@ -10,6 +10,9 @@ export interface StyleValue {
   arbitrary: boolean
   prefix: string
 }
+export interface StyleValueNumber extends Omit<StyleValue,'value'> {
+  value: number
+}
 
 export interface Styles {
   color?: StyleValue
@@ -18,11 +21,26 @@ export interface Styles {
   borderColor?: StyleValue
   borderStyle?: StyleValue
   borderRadius?: StyleValue
+  fontSize?: StyleValueNumber
+  fontFamily?: StyleValue
+  fontWeight?: StyleValue
+  lineHeight?: StyleValue
+  letterSpacing?: StyleValue
+  textAlign?: StyleValue
+  padding?: StyleValue
+  margin?: StyleValue
+  width?: StyleValue
+  height?: StyleValue
 }
 
 export interface Page {
   elements: Element[]
   path: string
+  fonts?: { 
+    family: string, 
+    weight: string[], 
+    style: string[]
+  }[]
 }
 
 export interface Site {
@@ -34,7 +52,7 @@ export interface Site {
   pages: Page[]
   owner: {
     _id: string | ObjectId
-  }
+  },
   isPublicTemplate?: boolean
 }
 

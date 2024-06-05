@@ -1,4 +1,4 @@
-import type { Element, Site } from '~/types/site'
+import type { Element, Site, Page, Styles } from '~/types/site'
 
 export const useSiteState = () => useState<Site>('current-file', () => ({
   _id: '',
@@ -30,11 +30,43 @@ export const useSiteEditor = () => {
 
   }
 
+  const updateFontCollection = () => {
+    
+    state.value.pages.forEach((page) => {
+
+      const fonts: Page['fonts'] = []
+
+      page.elements.forEach((element) => {
+        Object.entries(element.props).forEach(([key, styles]: [string, Styles]) => {
+          if(!key.toLocaleLowerCase().includes('styles') || !styles.fontFamily?.value) {
+            return
+          }
+
+          const font = fonts.find((font) => font.family === styles.fontFamily?.value)
+          if(font) {
+            font.weight
+            if(!font.weight.includes(styles.fontWeight?.value || '400')) {
+              font.weight.push(styles.fontWeight?.value || '400')
+              font.weight.sort()
+            }
+          } else {
+            fonts.push({ family: styles.fontFamily?.value, weight: [styles.fontWeight?.value || '400'], style: [] })
+          }
+
+        })
+      })
+
+      page.fonts = fonts
+    })
+
+  }
+
   return {
     state,
     selectedElement,
     parentSelectedElement,
     setSelectedElement,
-    deleteSelectedElement
+    deleteSelectedElement,
+    updateFontCollection
   }
 }

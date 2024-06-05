@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       }
     })
 
-    const page = await generatePage(body.pages[0].elements)
+    const page = await generatePage(body.pages[0])
 
     s3.putObject({
       Bucket: 'webs',
