@@ -39,6 +39,14 @@ const elements: Element[] = [
   }
 ]
 
+const emit = defineEmits<{
+  add: [el: Element]
+}>()
+
+const handleAdd = (element: Element) => {
+  emit('add', structuredClone({...element, id: nanoid(8)}))
+}
+
 </script>
 
 <template>
@@ -48,7 +56,7 @@ const elements: Element[] = [
       <ui-button 
         class="text-nowrap"
         variant="outline"
-        @click="$emit('add', {...element, id: nanoid(8)})"
+        @click="handleAdd(element)"
       >
         {{ element.el }}
       </ui-button>
