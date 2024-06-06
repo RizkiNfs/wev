@@ -4,7 +4,7 @@ import { generateStyle } from '~/utils/style'
 import type { Styles } from '~/types/site'
 
 interface LinkItem {
-  title: string
+  text: string
   href: string
 }
 
@@ -45,7 +45,7 @@ const LinkList = defineComponent({
             h('a', { 
               class: [props.linkStyle, generateStyle(props.linkStyles)],
               href: link.href
-            }, link.title)
+            }, link.text)
           ])
         )))
       )
