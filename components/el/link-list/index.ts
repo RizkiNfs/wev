@@ -26,10 +26,6 @@ const LinkList = defineComponent({
       type: Array as PropType<LinkItem[]>,
       required: true
     },
-    linkStyle: {
-      type: String,
-      default: ''
-    },
     linkStyles: {
       type: Object as PropType<Props['linkStyles']>,
       default: () => ({})
@@ -43,7 +39,7 @@ const LinkList = defineComponent({
         h('ul', props.items?.map((link) => (
           h('li', { class: 'mb-4' }, [
             h('a', { 
-              class: [props.linkStyle, generateStyle(props.linkStyles)],
+              class: ['hover:opacity-90 text-center block px-4 py-3 cursor-pointer', generateStyle(props.linkStyles)],
               href: link.href
             }, link.text)
           ])

@@ -16,6 +16,11 @@ dragAndDrop({
   dragHandle: '.drag-handler',
 })
 
+
+const handleDelete = (id: string) => {
+  elements.value = elements.value.filter(e => e.id !== id)
+}
+
 </script>
 
 <template>
@@ -32,6 +37,14 @@ dragAndDrop({
         {{e.el}}
         <ui-icon icon="iconamoon:arrow-right-2-bold" class="text-xl"/>
       </ui-button>
+      <button
+        :aria-label="`Remove ${e.el}`"
+        class="mx-2 h-8 w-8 flex items-center justify-center bg-neutral-200 rounded text-neutral-600 hover:bg-neutral-300 hover:text-neutral-700"
+        @click="handleDelete(e.id)"
+      >
+        <ui-icon icon="iconamoon:trash-bold" />
+        
+      </button>
     </li>
   </ul>
   <ui-sheet 

@@ -8,6 +8,9 @@ const { state } = useSiteEditor()
 
 <template>
   <editor-element-list v-model="state.pages[0].elements" />
+  <editor-element-picker 
+    @add="state.pages[0].elements.push($event)"
+  />
   <ui-sheet 
     :open="!!selectedElement"
     side="right" 
