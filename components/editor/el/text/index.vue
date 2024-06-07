@@ -9,11 +9,11 @@ const el = useSelectedElement<TextEl>()
   <div v-if="el">
     <ui-textarea v-model="el.props.content"/>
     <editor-style-font
-      class="mt-4"
       v-model:color="el.props.styles.color"
       v-model:fontSize="el.props.styles.fontSize"
       v-model:fontFamily="el.props.styles.fontFamily"
       v-model:fontWeight="el.props.styles.fontWeight"
+      class="mt-4"
       @delete="[
         delete el.props.styles.fontSize, 
         delete el.props.styles.color, 

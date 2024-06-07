@@ -44,4 +44,11 @@ export default defineNuxtConfig({
       'Nunito Sans': [400,700],
     }
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        external: ['sharp'],
+      }
+    }
+  }
 })

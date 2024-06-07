@@ -13,6 +13,11 @@ const sidebarLinks = [
     path: '/dashboard/sites',
     icon: 'iconamoon:file-document-bold'
   },
+  {
+    name: 'Files',
+    path: '/dashboard/files',
+    icon: 'iconamoon:file-image-bold'
+  },
   
 ]
 

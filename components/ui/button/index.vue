@@ -2,7 +2,7 @@
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 
-const button = cva('text-center cursor-pointer disabled:cursor-not-allowed py-2 px-4 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white', {
+const button = cva('inline-flex justify-center items-center cursor-pointer disabled:cursor-not-allowed py-2 px-4 rounded-lg focus:ring-2 focus:ring-offset-2 focus:ring-offset-white', {
   variants: {
     variant: {
       filled: 'text-white',
@@ -57,6 +57,7 @@ interface Props {
   color?: ButtonVariant['color']
   variant?: ButtonVariant['variant'] 
   loading?: boolean
+  as?: string
 }
 
 const Link = resolveComponent('nuxt-link')
@@ -67,14 +68,15 @@ const {
   to,
   color = 'primary',
   variant = 'filled',
-  loading = false
+  loading = false,
+  as = 'button'
 } = defineProps<Props>()
 
 </script>
 
 <template>
   <component
-    :is="to ? Link : 'button'"
+    :is="to ? Link : as"
     :to="to"
     :class="button({ color, variant })"
     :disabled="disabled || loading"
