@@ -1,6 +1,12 @@
 <script setup lang="ts">
 
+import type { File } from '~/types/file'
+
 const { data: files, refresh } = useFetch('/api/my/files')
+
+const emit = defineEmits<{
+  pick: [file: File]
+}>()
 
 </script>
 
@@ -26,11 +32,13 @@ const { data: files, refresh } = useFetch('/api/my/files')
         :key="file._id"
         class="shadow-sm rounded-b-lg border"
       >
-        <img 
-          :src="file.link" 
-          :alt="file.title" 
-          class="aspect-[16/12] object-cover"
-        >
+        <button @click="emit('pick',file)">
+          <img 
+            :src="file.link" 
+            :alt="file.title" 
+            class="aspect-[16/12] object-cover"
+          >
+        </button>
         <div class="p-2 flex gap-x-2 items-center">
           <ui-icon icon="akar-icons:image" class=" text-sm md:text-xl text-neutral-600" />
           <p class="flex-1 text-sm md:text-base text-nowrap text-ellipsis overflow-hidden">{{file.title}}</p>

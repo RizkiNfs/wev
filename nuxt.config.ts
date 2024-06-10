@@ -23,7 +23,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
-    'radix-vue/nuxt'
+    'radix-vue/nuxt',
+    '@vueuse/nuxt',
   ],
   imports: {
     dirs: [

@@ -1,0 +1,1 @@
+export type { File } from '~/server/db/file'
